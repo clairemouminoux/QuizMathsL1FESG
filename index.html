@@ -22,7 +22,7 @@
     var quiztitle = "Quiz Title";
 
     /**
-    * Set the information about your questions here. The correct answer string needs to match
+    * Set the information about your questions here. The answer string needs to match
     * the correct choice exactly, as it does string matching. (case sensitive)
     *
     */
@@ -101,7 +101,7 @@
             submt = true;
             $('#explanation').empty();
             $('#question').text(quiz[currentquestion]['question']);
-            $('#pager').text('Question ' + Number(currentquestion + 1) + ' of ' + quiz.length);
+            $('#pager').text('Question ' + Number(currentquestion + 1) + '/' + quiz.length);
             if(quiz[currentquestion].hasOwnProperty('image') && quiz[currentquestion]['image'] != ""){
                 if($('#question-image').length == 0){
                     $(document.createElement('img')).addClass('question-image').attr('id', 'question-image').attr('src', quiz[currentquestion]['image']).attr('alt', htmlEncode(quiz[currentquestion]['question'])).insertAfter('#question');
@@ -123,18 +123,18 @@
         function processQuestion(choice){
             if(quiz[currentquestion]['choices'][choice] == quiz[currentquestion]['correct']){
                 $('.choice').eq(choice).css({'background-color':'#50D943'});
-                $('#explanation').html('<strong>Correct!</strong> ' + htmlEncode(quiz[currentquestion]['explanation']));
+                $('#explanation').html('<strong>Oui!</strong> ' + htmlEncode(quiz[currentquestion]['explanation']));
                 score++;
             } else {
                 $('.choice').eq(choice).css({'background-color':'#D92623'});
-                $('#explanation').html('<strong>Incorrect.</strong> ' + htmlEncode(quiz[currentquestion]['explanation']));
+                $('#explanation').html('<strong>Et non...</strong> ' + htmlEncode(quiz[currentquestion]['explanation']));
             }
             currentquestion++;
             $('#submitbutton').html('NEXT QUESTION &raquo;').on('click', function(){
                 if(currentquestion == quiz.length){
                     endQuiz();
                 } else {
-                    $(this).text('Check Answer').css({'color':'#222'}).off('click');
+                    $(this).text('Vérifier la réponse').css({'color':'#222'}).off('click');
                     nextQuestion();
                 }
             })
