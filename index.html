@@ -191,7 +191,7 @@
             //add pager and questions
             if(typeof quiz !== "undefined" && $.type(quiz) === "array"){
                 //add pager
-                $(document.createElement('p')).addClass('pager').attr('id','pager').text('Question 1 sur ' + quiz.length).appendTo('#frame');
+                $(document.createElement('p')).addClass('pager').attr('id','pager').text('Question 1/' + quiz.length).appendTo('#frame');
                 //add first question
                 $(document.createElement('h2')).addClass('question').attr('id', 'question').text(quiz[0]['question']).appendTo('#frame');
                 //add image if present
