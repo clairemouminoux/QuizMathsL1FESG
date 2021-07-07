@@ -230,11 +230,11 @@
          * Quiz ends, display a message.
          */
         function endQuiz(){
-            $('#explanation').empty();
-            $('#question').empty();
-            $('#choice-block').empty();
+            $('#explanation').remove();
+            $('#question').remove();
+            $('#choice-block').remove();
             $('#submitbutton').remove();
-            $('#question').text( score + "/" + quiz.length );
+            $('#question').text( "Votre pourcentage de bonne réponse est de" );
             $(document.createElement('h2')).css({'text-align':'center', 'font-size':'4em'}).text(Math.round(score/quiz.length * 100) + '%').insertAfter('#question');
         }
 
