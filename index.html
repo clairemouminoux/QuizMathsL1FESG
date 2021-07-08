@@ -236,7 +236,7 @@ t<!DOCTYPE html>
             $('#submitbutton').remove();
             $('#pager').remove();
             $('#question').text( "Votre pourcentage de bonne réponse est de" );
-            $(document.createElement('h2')).css({'text-align':'center', 'font-size':'4em'}).text(Math.round(score/quiz.length * 100) + '%').insertAfter('#question');
+            $(document.createElement('h2')).css({'text-align':'center', 'font-size':'4em'}).text(Math.round(score/quiz.length * 100) + '% (' +score + '/' + quiz.length +')').insertAfter('#question');
         }
 
         /**
